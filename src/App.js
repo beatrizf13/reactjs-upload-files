@@ -1,9 +1,18 @@
 import React, { Component } from "react";
-import "./App.css";
+
+import GlobalStyle from "./styles/global";
+import { Container, Content } from "./styles";
 
 class App extends Component {
   render() {
-    return <div className="App" />;
+    return (
+      <>
+        <GlobalStyle />
+        <Container>
+          <Content>Test</Content>
+        </Container>
+      </>
+    );
   }
 }
 
