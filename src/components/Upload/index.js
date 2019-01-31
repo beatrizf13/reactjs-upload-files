@@ -1,9 +1,58 @@
 import React, { Component } from 'react';
 
-// import { Container } from './styles';
+import Dropzone from 'react-dropzone';
+
+import { DropContainer, UploadMessage } from './styles';
 
 export default class Upload extends Component {
+  renderDragMessage = (isDragActive, isDragReject) => {
+    if (!isDragActive) {
+      return (
+        <UploadMessage>
+          Drag the files here...
+          <span role="img" aria-label="attachment">
+            📎
+          </span>
+          <span role="img" aria-label="hand">
+            👇
+          </span>
+        </UploadMessage>
+      );
+    }
+
+    if (isDragReject) {
+      return <UploadMessage type="error">Unsupported file type ⚠</UploadMessage>;
+    }
+
+    return (
+      <UploadMessage type="success">
+        Drop the files here...
+        <span role="img" aria-label="attachment">
+          📎
+        </span>
+        <span role="img" aria-label="hand">
+          👇
+        </span>
+      </UploadMessage>
+    );
+  };
+
   render() {
-    return <div />;
+    return (
+      <Dropzone accept="image/*">
+        {({
+          getRootProps, getInputProps, isDragActive, isDragReject,
+        }) => (
+          <DropContainer
+            {...getRootProps()}
+            isDragActive={isDragActive}
+            isDragReject={isDragReject}
+          >
+            <input {...getInputProps()} />
+            {this.renderDragMessage(isDragActive, isDragReject)}
+          </DropContainer>
+        )}
+      </Dropzone>
+    );
   }
 }

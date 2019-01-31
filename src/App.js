@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import GlobalStyle from "./styles/global";
-import { Container, Content } from "./styles";
+import GlobalStyle from './styles/global';
+import { Container, Content } from './styles';
+
+import Upload from './components/Upload';
 
 class App extends Component {
   render() {
@@ -9,7 +11,9 @@ class App extends Component {
       <>
         <GlobalStyle />
         <Container>
-          <Content>Test</Content>
+          <Content>
+            <Upload />
+          </Content>
         </Container>
       </>
     );
