@@ -1,6 +1,8 @@
 {
   "name": "reactjs-upload-files",
   "version": "0.1.0",
+  "repository": "https://github.com/beatrizf13/reactjs-upload-files.git",
+  "author": "beatrizf13 <azz.felix7@gmail.com>",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
